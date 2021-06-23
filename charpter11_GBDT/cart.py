@@ -129,8 +129,7 @@ class BinaryDecisionTree(object):
         y_pred = [self.predict_value(sample) for sample in X]
         return y_pred
 
-		
-		
+# CART分类树		
 class ClassificationTree(BinaryDecisionTree):
     ### 定义基尼不纯度计算过程
     def _calculate_gini_impurity(self, y, y1, y2):
@@ -177,7 +176,7 @@ class RegressionTree(BinaryDecisionTree):
         value = np.mean(y, axis=0)
         return value if len(value) > 1 else value[0]
 
-	# 回归树拟合
+    # 回归树拟合
     def fit(self, X, y):
         self.impurity_calculation = self._calculate_variance_reduction
         self._leaf_value_calculation = self._mean_of_y
